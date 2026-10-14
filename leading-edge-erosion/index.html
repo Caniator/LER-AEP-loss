@@ -53,10 +53,13 @@
     .nav .btn{padding:11px 20px;font-size:14px}
 
   /* hero */
-  .hero{background:var(--navy) url('/leading-edge-erosion/assets/3ff9482085.jpg') 70% center/cover no-repeat;color:#fff;padding:180px 0 120px;position:relative;overflow:hidden}
+  .hero{background:#0B1240 var(--bg-dark-2) left center/cover no-repeat;color:#fff;padding:180px 0 120px;position:relative;overflow:hidden}
   .hero h1 span{color:var(--orange)}
   .hero .lead{color:#C9D4E0;margin:24px 0 40px}
   .hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+  .hero-video{position:absolute;top:0;right:0;width:64%;height:100%;object-fit:cover;object-position:center;z-index:0;-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 35%);mask-image:linear-gradient(90deg,transparent 0%,#000 35%)}
+  @media (max-width:960px){.hero-video{width:100%;object-position:62% center;-webkit-mask-image:none;mask-image:none}}
+  @media (prefers-reduced-motion:reduce){.hero-video{display:none}}
   .hero-overlay{position:absolute;inset:0;z-index:1;background:#0B1240 var(--bg-dark-2) left center/cover no-repeat;-webkit-mask-image:linear-gradient(90deg,#000 0%,rgba(0,0,0,.92) 38%,rgba(0,0,0,.45) 58%,transparent 76%);mask-image:linear-gradient(90deg,#000 0%,rgba(0,0,0,.92) 38%,rgba(0,0,0,.45) 58%,transparent 76%)}
   .hero::after{content:'';position:absolute;left:0;right:0;bottom:0;height:30%;z-index:1;background:linear-gradient(0deg,rgba(11,18,64,.55),transparent);pointer-events:none}
   .hero .wrap{position:relative;z-index:2}
@@ -239,7 +242,7 @@
     .timeline::before{display:none}
     .tl{display:flex;gap:14px;align-items:center;text-align:left}
     .tl i{margin:0}
-    .hero{padding:140px 0 90px;background-position:66% center}
+    .hero{padding:140px 0 90px}
     .hero-overlay{-webkit-mask-image:linear-gradient(90deg,rgba(0,0,0,.95) 0%,rgba(0,0,0,.8) 60%,rgba(0,0,0,.5) 100%);mask-image:linear-gradient(90deg,rgba(0,0,0,.95) 0%,rgba(0,0,0,.8) 60%,rgba(0,0,0,.5) 100%)}
     .bars,.labels{gap:8px}
     .callout{grid-template-columns:1fr}
@@ -268,7 +271,11 @@
 
 <!-- HERO -->
 <section class="hero">
-  <!-- Background photo: eroded leading edge. In Webflow, upload lee-visuals/lee-hero.jpg and set it as the section background (cover, position 70% center). -->
+  <!-- Background video: erosion loop (MP4/WebM converted from the GIF) -->
+  <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="/leading-edge-erosion/assets/lee-hero-poster.jpg" aria-hidden="true">
+    <source src="/leading-edge-erosion/assets/lee-hero.webm" type="video/webm">
+    <source src="/leading-edge-erosion/assets/lee-hero.mp4" type="video/mp4">
+  </video>
   <div class="hero-overlay"></div>
   <div class="wrap">
     <h1>Your blades are<br><span>leaking energy.</span></h1>
